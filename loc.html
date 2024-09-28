@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .map {
+      height: 500px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  .btn-small {
+            color: #fff;
+            background-color: #0066ff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+  }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Map - Automatically Locate</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+
+  <h3>User Map - Automatically Locate</h3>
+  <div id="userMap" class="map"></div>
+  <button class="btn-small" onclick="saveUserLocation()">Save Location</button>
+  <button class="btn-small"onclick="goToStoredMap()">View Saved Location</button>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <script>
+    // Initialize the user map
+    const userMap = L.map('userMap').setView([20.5937, 78.9629], 5); // Default center
+    const userMarker = L.marker([20.5937, 78.9629]).addTo(userMap); // Default marker
+
+    // Add OpenStreetMap tile layer for user map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(userMap);
+
+    let userLocation = null;
+
+    // Automatically load user location
+    window.onload = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
+          userLocation = [userLat, userLng];
+
+          // Update the map view and marker position
+          userMap.setView(userLocation, 13);
+          userMarker.setLatLng(userLocation);
+          userMarker.bindPopup('<b>You are here!</b>').openPopup();
+        }, () => {
+          alert("Unable to retrieve your location.");
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    };
+
+    // Function to save the user's location to localStorage
+    function saveUserLocation() {
+      if (userLocation) {
+        localStorage.setItem('userLat', userLocation[0]);
+        localStorage.setItem('userLng', userLocation[1]);
+        alert('Location saved!');
+      } else {
+        alert('Could not determine your location.');
+      }
+    }
+
+    // Function to redirect to stored location map
+    function goToStoredMap() {
+      // Save location first
+      saveUserLocation();
+      // Redirect to stored map (you can change 'storedMap.html' to the appropriate file name)
+      window.location.href = 'loa.html'; 
+    }
+  </script>
+
+</body>
+</html>

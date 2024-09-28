@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .map {
+      height: 500px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Saved Location</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+
+  <h3>Show Saved User Location</h3>
+  <div id="storedMap" class="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <script>
+    // Initialize the stored location map
+    const storedMap = L.map('storedMap').setView([20.5937, 78.9629], 5); // Default center
+    const storedMarker = L.marker([20.5937, 78.9629]).addTo(storedMap); // Default marker
+
+    // Add OpenStreetMap tile layer for stored location map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(storedMap);
+
+    // Load the saved location from localStorage
+    window.onload = () => {
+      const savedLat = localStorage.getItem('userLat');
+      const savedLng = localStorage.getItem('userLng');
+
+      if (savedLat && savedLng) {
+        const savedLocation = [parseFloat(savedLat), parseFloat(savedLng)];
+        storedMap.setView(savedLocation, 13);
+        storedMarker.setLatLng(savedLocation);
+        storedMarker.bindPopup('<b>Your saved location!</b>').openPopup();
+      } else {
+        alert('No location saved.');
+      }
+    };
+  </script>
+
+</body>
+</html>

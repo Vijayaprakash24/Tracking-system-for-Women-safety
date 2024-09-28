@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+        }
+        /* Container */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        /* Header */
+        header {
+            background-color: #002366;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        .nav-links {
+            display: flex;
+            margin-right: 1rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 70px; /* Adjust the height of the logo */
+            margin-right: 20px;
+            width: 100px; /* Add space between logo and nav links */
+        }
+        /* Hero Section */
+        .hero {
+            background-image: url('gg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 1rem;
+        }
+        .hero-buttons .btn {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #0066ff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+        /* Features Section */
+        .features {
+            background-color: #002366;
+            padding: 4rem 2rem;
+            color: white;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            background-color: #003399;
+            color: #ddd;
+            padding: 2rem;
+            border-radius: 5px;
+        }
+        /* Numbers Section */
+        .numbers {
+            background-color: #e6f4ff;
+            padding: 40px 0;
+        }
+        .numbers h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .numbers p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 36px;
+            color: #007bff;
+        }
+        .stat-item p {
+            font-size: 14px;
+            color: #555;
+        }
+        /* Team Section */
+        .team {
+            padding: 4rem 2rem;
+            background-color: #002366;
+            color: #fff;
+            text-align: center;
+        }
+        .team h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .team-member {
+            background-color: #003399;
+            padding: 2rem;
+            border-radius: 5px;
+        }
+        .team-member img {
+            max-width: 80px;
+            margin-bottom: 20px;
+        }
+        .team-member h3 {
+            font-size: 18px;
+            color: #fff;
+        }
+        .team-member p {
+            font-size: 14px;
+            color: #ddd;
+        }
+        /* Video Section */
+        .video-section {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+        .video-section h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+        .video-placeholder {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .video-placeholder img {
+            width: 100%;
+        }
+        /* Testimonial Section */
+        .testimonial {
+            padding: 40px 0;
+            background-color: #001f3f;
+            color: #fff;
+            text-align: center;
+        }
+        .testimonial p {
+            font-size: 1.2rem;
+        }
+        .testimonial img {
+            width: 150px;
+            margin-top: 20px;
+        }
+        /* Footer Section */
+        footer {
+            background-color: #002366;
+            padding: 1rem;
+            text-align: center;
+            color: #fff;
+        }
+        .btn-small {
+            color: #fff;
+            background-color: #0066ff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BluCall - Revolutionizing Personal Safety</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="Logo11.jpg" alt="BluCall Logo">
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="loc.html"><button class="btn-small">Location</button></a>
+                <a href="login.html"><button class="btn-small">Login</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Revolutionizing Personal Safety</h1>
+            <p>Experience the next level of safety with BluCall's AI-powered call guidance and wearable integration.</p><br>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Get Started</a>
+                <a href="#" class="btn">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Advanced Safety Features</h2>
+        <p>BluCall offers continuous monitoring, threat identification, and interactive call support to ensure your safety.</p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>Continuous Monitoring</h3>
+                <p>Stay protected with our 24/7 monitoring system that keeps you safe at all times.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Threat Identification</h3>
+                <p>Our AI analyzes potential threats in real-time to provide immediate alerts.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Interactive Call Support</h3>
+                <p>Get instant assistance through our AI-powered call guidance system.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Wearable Integration</h3>
+                <p>Seamlessly integrate with wearable devices for enhanced safety and convenience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BluCall in Numbers Section -->
+    <section class="numbers">
+        <div class="container">
+            <h2>BluCall in Numbers</h2>
+            <p>Discover the impact and reliability of our advanced safety system.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Monitoring</p>
+                    <p>Always keeping you safe</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Threat Detection Accuracy</p>
+                    <p>Reliable and precise</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>Users Protected</p>
+                    <p>Trusted by many</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2>Meet the BluCall Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="ai-icon.jpg" alt="AI Experts">
+                <h3>AI Experts</h3>
+                <p>Our team consists of leading experts in artificial intelligence.</p>
+            </div>
+            <div class="team-member">
+                <img src="wearable-icon.jpg" alt="Wearable Tech Innovators">
+                <h3>Wearable Tech Innovators</h3>
+                <p>Pioneers in wearable technology, ensuring seamless integration.</p>
+            </div>
+            <div class="team-member">
+                <img src="safety-icon.jpg" alt="Safety Specialists">
+                <h3>Safety Specialists</h3>
+                <p>Professionals dedicated to ensuring the highest safety standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2>Watch BluCall in Action</h2>
+            <div class="video-placeolder">
+                <video height="200px" width="320px" controls="controls"><source src="video.mp4" type="video/mp4"/></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <p>"BluCall is a game-changer. Its AI-powered system has provided me with a sense of safety and security that I’ve never experienced before."</p>
+           
+          
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 BluCall. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
